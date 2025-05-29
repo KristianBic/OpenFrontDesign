@@ -75,8 +75,8 @@
   .bg-grid-tactical {
     background-size: 32px 32px;
     background-image: 
-      linear-gradient(to right, rgba(245, 158, 11, 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(245, 158, 11, 0.1) 1px, transparent 1px);
+      linear-gradient(to right, rgba(245, 158, 11, 0.2) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(245, 158, 11, 0.2) 1px, transparent 1px);
   }
 
   .scanlines::before {
