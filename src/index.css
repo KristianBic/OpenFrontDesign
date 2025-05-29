@@ -1,0 +1,157 @@
+@import '@fontsource/ibm-plex-mono';
+@import '@fontsource/share-tech-mono';
+@import '@fontsource/fragment-mono';
+@import '@fontsource/vt323';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-amber-500;
+    background: linear-gradient(to bottom, #000913 0%, #001326 100%);
+    text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-amber-500/70 hover:text-amber-400 transition-colors font-mono;
+  }
+
+  .pixel-border {
+    @apply relative border border-amber-500/20;
+    box-shadow: 
+      inset 0 0 10px rgba(245, 158, 11, 0.1),
+      0 0 5px rgba(245, 158, 11, 0.2);
+  }
+
+  .pixel-button {
+    @apply relative text-amber-500 text-base px-4 py-2 transition-all duration-150 bg-black/50 border border-amber-500/20 font-pixel tracking-wide font-normal;
+    box-shadow: 
+      inset 0 0 10px rgba(245, 158, 11, 0.1),
+      0 0 5px rgba(245, 158, 11, 0.2);
+  }
+
+  .pixel-button:hover {
+    @apply bg-amber-500/10 border-amber-500/30;
+    box-shadow: 
+      inset 0 0 15px rgba(245, 158, 11, 0.2),
+      0 0 10px rgba(245, 158, 11, 0.3);
+  }
+
+  .pixel-panel {
+    @apply bg-black/50 border border-amber-500/20;
+    box-shadow: 
+      inset 0 0 10px rgba(245, 158, 11, 0.1),
+      0 0 5px rgba(245, 158, 11, 0.2),
+      0 0 10px rgba(245, 158, 11, 0.1);
+  }
+
+  .terminal-input {
+    @apply w-full px-4 py-3 bg-black/50 border border-amber-500/20 font-mono text-amber-500 placeholder-amber-500/30 focus:outline-none focus:border-amber-500/50;
+    box-shadow: 
+      inset 0 0 10px rgba(245, 158, 11, 0.1),
+      0 0 5px rgba(245, 158, 11, 0.2);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-black/50;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-amber-500/20 hover:bg-amber-500/30 transition-colors;
+  }
+
+  .scanlines::before {
+    content: '';
+    @apply fixed inset-0 pointer-events-none z-50;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15) 0px,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  }
+
+  .crt-effect::after {
+    content: '';
+    @apply fixed inset-0 pointer-events-none z-40;
+    background: radial-gradient(
+      circle at center,
+      transparent 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  }
+
+  /* Modal Animations */
+  .modal-overlay {
+    animation: modalFadeIn 0.2s ease-out;
+  }
+
+  .modal-overlay.closing {
+    animation: modalFadeOut 0.2s ease-in forwards;
+  }
+
+  .modal-content {
+    animation: modalSlideIn 0.2s ease-out;
+  }
+
+  .modal-content.closing {
+    animation: modalSlideOut 0.2s ease-in forwards;
+  }
+
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      backdrop-filter: blur(0);
+    }
+    to {
+      opacity: 1;
+      backdrop-filter: blur(8px);
+    }
+  }
+
+  @keyframes modalFadeOut {
+    from {
+      opacity: 1;
+      backdrop-filter: blur(8px);
+    }
+    to {
+      opacity: 0;
+      backdrop-filter: blur(0);
+    }
+  }
+
+  @keyframes modalSlideIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes modalSlideOut {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+  }
+}
